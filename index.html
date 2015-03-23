@@ -327,8 +327,8 @@
         $("#btnNewGame").click(function(evt) {
             arrowctx.clearRect( 0, 0, canvas.width, canvas.height );
             stepSeq = [];
-            $("#btnUndo").disabled(true);
-            $("#btnRedo").disabled(true);
+            redoSeq = [];
+            checkDoButtonsAbleState();
             if ($("#whoseTurn").text() === "Red Turn") {
                 toggleTurn();
             }
