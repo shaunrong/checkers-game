@@ -280,6 +280,7 @@
                     var imgID = "#" + from_row.toString() + from_col.toString();
                     //console.log(imgID);
                     var imgOnMove = $(imgID);
+                    imgOnMove.css('z-index', 40);
                     var initPos = {
                         x: parseInt(imgOnMove.css('left')) - e.pageX, 
                         y: parseInt(imgOnMove.css('top')) - e.pageY
@@ -299,7 +300,7 @@
                             imgOnMove.css('top', initPos.y + end_y);
                         },
                         mouseup: function(e) {
-                            var to_row = Math.floor( (e.pageY + position.top - 2) / sideLength );
+                            var to_row = Math.floor( (e.pageY - position.top - 2) / sideLength );
                             var to_col = Math.floor( (e.pageX - position.left - 2) / sideLength );
                             var playerDirection = directionOf(whoseTurn);
                             var resultMove = rules.makeMove(checker, playerDirection, playerDirection, to_row, to_col);
